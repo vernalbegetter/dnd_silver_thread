@@ -10,6 +10,17 @@ stylesheet, so it works from any static host — or straight off disk.
 2. Repo **Settings → Pages** → Source: *Deploy from a branch* → Branch: `main`, folder `/ (root)` → Save.
 3. After a minute the page is at `https://<user>.github.io/dnd_silver_thread/`.
 
+**The live page is <https://vernalbegetter.github.io/dnd_silver_thread/>.**
+
+Renaming the GitHub account moves that URL. GitHub redirects repository web and
+API traffic from the old name, but it does **not** redirect Pages: the old
+`*.github.io` host simply 404s. A rename therefore means three edits - the
+`SYNC.owner` constant inside `index.html`, the link above, and the clone's
+`git remote set-url`. It also strands the installed web app, because the new
+host is a different origin: local storage, the sync token and the home-screen
+icon all belong to the old one. Re-add it from the new URL and unlock; the
+shared copy carries the state across.
+
 **GitHub Pages only serves public repositories on a free plan.** If this repo is
 private, Pages will refuse to publish until the repo is made public or the
 account is on a paid plan. A public Pages site is readable by anyone with the
